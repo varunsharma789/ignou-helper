@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IGNOU Helper • Free Solved Assignments & Student Tools</title>
+  <meta name="description" content="Free solved assignments, previous year papers, important questions, and quick links to IGNOU student portals." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://www.example.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IGNOU Helper" />
+  <meta property="og:title" content="IGNOU Helper — Free Solved Assignments, PYQ, Important Q&A" />
+  <meta property="og:description" content="Free IGNOU resources: solved assignments, previous year papers, important questions, and official portal links." />
+  <meta property="og:url" content="https://www.example.com/" />
+  <meta property="og:image" content="https://www.example.com/og-image.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IGNOU Helper — Free Solved Assignments, PYQ, Important Q&A" />
+  <meta name="twitter:description" content="Free IGNOU resources: solved assignments, previous year papers, important questions." />
+  <meta name="twitter:image" content="https://www.example.com/og-image.jpg" />
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a'}
+          }
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    :focus-visible{outline:2px dashed #60a5fa;outline-offset:2px}
+    .fade-in{animation:fade .25s ease-out both}@keyframes fade{from{opacity:.0;transform:translateY(4px)}to{opacity:1;transform:none}}
+    .prose :where(h2,h3){scroll-margin-top:6rem}
+/* Make native select options readable */
+#langSelect option { background:#fff; color:#111; }
+.dark #langSelect option { background:#0f172a; color:#fff; }
+  </style>
+
+  <!-- JSON-LD: Organization & Site Search -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"IGNOU Helper",
+    "url":"https://www.example.com/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://www.example.com/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body class="h-full bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+  <!-- Top Announcement / CTA -->
+  <div class="w-full bg-primary-600 text-white text-sm">
+    <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between">
+  <p class="truncate" data-i18n="top.free">100% Free • No login • Clean PDFs for IGNOU students</p>
+  <div class="flex items-center gap-2">
+    <label for="langSelect" class="sr-only">Language</label>
+    <select id="langSelect" class="rounded-lg border border-white/30 bg-white text-gray-900 text-xs px-2 py-1 dark:bg-gray-900 dark:text-white">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="bn">বাংলা</option>
+      <option value="mr">मराठी</option>
+      <option value="te">తెలుగు</option>
+      <option value="ta">தமிழ்</option>
+      <option value="gu">ગુજરાતી</option>
+      <option value="ur">اردو</option>
+      <option value="kn">ಕನ್ನಡ</option>
+      <option value="ml">മലയാളം</option>
+      <option value="pa">ਪੰਜਾਬੀ</option>
+    </select>
+    <button id="darkToggle" class="rounded-full px-3 py-1 bg-white/10 hover:bg-white/20 text-white text-xs" data-i18n="top.theme">Toggle Theme</button>
+  </div>
+</div>
+
+  </div>
+
+  <!-- Header (Shared) -->
+  <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/70 backdrop-blur border-b border-gray-200/60 dark:border-gray-800">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center gap-4">
+      <a href="./" class="flex items-center gap-2">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary-600 text-white font-bold">IG</span>
+        <span class="font-semibold text-lg tracking-tight">IGNOU Helper</span>
+      </a>
+      <nav class="ml-auto hidden md:flex items-center gap-6 text-sm" id="mainNav">
+        <a data-tab-link href="?tab=assignments" class="hover:text-primary-600" data-i18n="nav.assignments">Assignments</a>
+<a data-tab-link href="?tab=pyq" class="hover:text-primary-600" data-i18n="nav.pyq">Previous Papers</a>
+<a data-tab-link href="?tab=important" class="hover:text-primary-600" data-i18n="nav.important">Important Q&A</a>
+<a data-tab-link href="?tab=blog" class="hover:text-primary-600">Blog</a>
+<a href="#tools" class="hover:text-primary-600" data-i18n="nav.tools">Student Tools</a>
+<a href="#faq" class="hover:text-primary-600" data-i18n="nav.faq">FAQ</a>
+
+      </nav>
+      <button class="md:hidden inline-flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-800 p-2" id="mobileMenuBtn" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-800">
+      <div class="mx-auto max-w-7xl px-4 py-3 grid grid-cols-2 gap-3 text-sm">
+        <a data-tab-link href="?tab=assignments" class="py-2" data-i18n="nav.assignments">Assignments</a>
+<a data-tab-link href="?tab=pyq" class="py-2" data-i18n="nav.pyq">Previous Papers</a>
+<a data-tab-link href="?tab=important" class="py-2" data-i18n="nav.important">Important Q&A</a>
+<a data-tab-link href="?tab=blog" class="py-2">Blog</a>
+<a href="#tools" class="py-2" data-i18n="nav.tools">Student Tools</a>
+<a href="#faq" class="py-2" data-i18n="nav.faq">FAQ</a>
+
+
+      </div>
+    </div>
+  </header>
+
+  <!-- AD: Top Banner (Responsive) -->
+  <div class="w-full border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 py-3">
+      <div id="ad-top-banner" class="ad-slot w-full min-h-[60px] flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-xs text-gray-500">
+        AD: Top Banner 728×90 / 970×90 / Responsive
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero / Search -->
+  <section class="border-b border-gray-200/60 dark:border-gray-800 bg-white dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 py-10">
+      <div class="grid md:grid-cols-12 gap-6 items-center">
+        <div class="md:col-span-7">
+          <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">Free Solved Assignments & Exam Resources for <span class="text-primary-600">IGNOU</span></h1>
+          <p class="mt-3 text-gray-600 dark:text-gray-300">Search by course code, filter by programme, and jump to official portals in one click.</p>
+          <div class="mt-5 flex items-stretch gap-2">
+            <label class="sr-only" for="globalSearch">Search</label>
+            <input id="globalSearch" type="search" placeholder="Search by course code (e.g., BEGAE-182) or keyword" class="w-full md:w-4/5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 text-sm focus:border-primary-500" />
+            <button id="searchBtn" class="rounded-xl bg-primary-600 px-4 py-3 text-white text-sm font-semibold hover:bg-primary-700">Search</button>
+          </div>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs">
+            <span class="text-gray-500">Popular:</span>
+            <button class="chip" data-chip="BAG">BAG</button>
+            <button class="chip" data-chip="MCOM">MCOM</button>
+            <button class="chip" data-chip="MA Psychology">MA Psychology</button>
+            <button class="chip" data-chip="BEGAE-182">BEGAE-182</button>
+            <button class="chip" data-chip="BCOMG-171">BCOMG-171</button>
+          </div>
+        </div>
+        <div class="md:col-span-5">
+          <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gradient-to-br from-primary-50 to-white dark:from-gray-800 dark:to-gray-900 p-5">
+            <p class="text-sm font-semibold mb-3">Quick Links</p>
+            <div class="grid grid-cols-2 gap-3" id="quickLinks">
+              <a href="#" class="ql">Grade Card</a>
+              <a href="#" class="ql">Results</a>
+              <a href="#" class="ql">Assignment Status</a>
+              <a href="#" class="ql">Re-Registration</a>
+              <a href="#" class="ql">Exam Form</a>
+              <a href="#" class="ql">Hall Ticket</a>
+              <a href="#" class="ql">Study Material (eGyanKosh)</a>
+              <a href="#" class="ql">Student Handbook</a>
+            </div>
+            <p class="mt-4 text-xs text-gray-600 dark:text-gray-400">Tip: Right-click and “Open link in new tab” so you don’t lose your place.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content (SPA Router Target) -->
+<div class="mx-auto max-w-7xl px-4 mt-6">
+  <div class="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded-md text-sm text-center dark:bg-yellow-900 dark:text-yellow-100 dark:border-yellow-700" role="note">
+    😊 This site is 100% free for students. Ads you see here help keep it alive and support our work — thank you!
+  </div>
+</div>
+
+  <main id="app" class="mx-auto max-w-7xl px-4 py-10 grid lg:grid-cols-12 gap-8">
+  
+</main>
+
+
+
+  <!-- FAQ -->
+  <section id="faq" class="mx-auto max-w-7xl px-4 pb-12">
+    <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6">
+      <h2 class="text-xl font-bold mb-4">FAQ</h2>
+      <details class="group border-b border-gray-200 dark:border-gray-800 py-3">
+        <summary class="flex cursor-pointer list-none items-center justify-between">
+          <span class="font-medium">Are these answers free?</span>
+          <svg class="h-5 w-5 transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+        </summary>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Yes. Everything here is free to access and download.</p>
+      </details>
+      <details class="group border-b border-gray-200 dark:border-gray-800 py-3">
+        <summary class="flex cursor-pointer list-none items-center justify-between">
+          <span class="font-medium">Do I still need to study from books?</span>
+          <svg class="h-5 w-5 transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+        </summary>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Use these as a guide. Follow IGNOU’s academic integrity rules and refer to official materials.</p>
+      </details>
+      <details class="group py-3">
+        <summary class="flex cursor-pointer list-none items-center justify-between">
+          <span class="font-medium">Can I request a missing course?</span>
+          <svg class="h-5 w-5 transition-transform group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+        </summary>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Yes—use the “Request a PDF” form on the left.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Footer (Shared) -->
+  <footer class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-gray-600 dark:text-gray-300">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <p>© <span id="year"></span> IGNOU Helper. Community-made, for students.</p>
+        <nav class="flex items-center gap-4">
+          <a href="#" class="hover:text-primary-600">About</a>
+          <a href="#" class="hover:text-primary-600">DMCA / Takedown</a>
+          <a href="#" class="hover:text-primary-600">Contact</a>
+        </nav>
+      </div>
+      <p class="mt-3 text-xs">Disclaimer: This site is independent and not affiliated with IGNOU. Always verify details on the official portals.</p>
+    </div>
+  </footer>
+
+  <!-- AD: Footer Anchor -->
+  <div class="w-full border-t border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-900/90 backdrop-blur supports-[backdrop-filter]:backdrop-blur sticky bottom-0 z-30">
+    <div class="mx-auto max-w-7xl px-4 py-2">
+      <div id="ad-footer-anchor" class="ad-slot w-full min-h-[60px] flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-800 text-[11px] text-gray-500">
+        AD: Anchor / 320×50 (mobile) / Responsive
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Inline JSON (fallback) ===== -->
+  <script id="courses-json" type="application/json">{
+    "items": [
+      {"programme":"BAG","category":"assignments","year":"1st","code":"BEGAE-182","title":"English Communication Skills","session":"2024-25","download":"#","preview":"#"},
+      {"programme":"BCOMG","category":"assignments","year":"1st","code":"BCOMG-171","title":"Computer Applications in Business","session":"2024-25","download":"#","preview":"#"},
+      {"programme":"MA Psychology","category":"pyq","year":"2nd","code":"MPCE-023","title":"Interventions in Counselling (PYQ 2019–2024)","download":"#","preview":"#"},
+      {"programme":"MCOM","category":"important","year":"1st","code":"MCO-01","title":"Organisation Theory and Behaviour — Important Q&A","download":"#","preview":"#"},
+      {"programme":"BAG","category":"pyq","year":"2nd","code":"BEGC-131","title":"PYQ Compilation (2018–2024)","download":"#","preview":"#"},
+      {"programme":"BCOMG","category":"pyq","year":"3rd","code":"BCOMG-171","title":"PYQ Compilation (2019–2024)","download":"#","preview":"#"},
+      {"programme":"MA Psychology","category":"important","year":"2nd","code":"MPCE-011","title":"Research Methods — Important Q&A","download":"#","preview":"#"},
+      {"programme":"MCOM","category":"important","year":"1st","code":"MCO-03","title":"Accounting for Managerial Decisions — Important Q&A","download":"#","preview":"#"}
+    ]
+  }</script>
+<script id="blog-json" type="application/json">{
+  "posts": [
+    {
+      "title": "IGNOU Assignment Submission Last Dates – Updated for 2025",
+      "slug": "ignou-assignment-submission-2025",
+      "date": "2025-08-01",
+      "excerpt": "Latest IGNOU assignment submission deadlines for June and December sessions, with tips to avoid last-minute issues.",
+      "content": "<p><strong>Deadlines:</strong> Keep an eye on official notices. Submit early, keep a copy, and track your status online. We’ll keep this post updated.</p><p>Checklist: Cover page filled, proper formatting, plagiarism under control, and index added.</p>"
+    },
+    {
+      "title": "How to Score Maximum Marks in IGNOU Assignments",
+      "slug": "score-max-marks-ignou",
+      "date": "2025-07-20",
+      "excerpt": "Actionable steps to push your assignment scores higher with structure, references, and clarity.",
+      "content": "<p>Use headings, bullet points, and cite IGNOU materials. Answer what is asked, not everything you know.</p>"
+    },
+    {
+      "title": "IGNOU Grade Card: What Each Column Means",
+      "slug": "ignou-grade-card-explained",
+      "date": "2025-06-30",
+      "excerpt": "Understand TEE, Assignment, and overall calculations so you can track progress correctly.",
+      "content": "<p>Grade card reflects term-end exam + assignment weightages. If something looks off, check after phase-wise updates.</p>"
+    }
+  ]
+}</script>
+
+<script>
+// --- Security helpers (drop-in, no dependencies) ---
+function escapeHTML(str = "") {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+// Very small sanitizer: allow only safe inline content tags + safe attributes on <a>
+function sanitizeHTML(dirty = "") {
+  const ALLOWED_TAGS = new Set(["p","b","strong","i","em","u","s","ul","ol","li","br","hr","blockquote","code","pre","h2","h3","h4","h5","h6","span","a"]);
+  const ALLOWED_ATTRS = { a: new Set(["href","title","rel","target"]) };
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(String(dirty), "text/html");
+
+  const walker = doc.createTreeWalker(doc.body, NodeFilter.SHOW_ELEMENT, null);
+  let node = walker.currentNode;
+
+  while (node) {
+    const tag = node.tagName ? node.tagName.toLowerCase() : "";
+    if (!ALLOWED_TAGS.has(tag)) {
+      const repl = doc.createTextNode(node.textContent || "");
+      node.replaceWith(repl);
+      node = walker.nextNode();
+      continue;
+    }
+    // Strip disallowed attributes
+    [...node.attributes].forEach(attr => {
+      const name = attr.name.toLowerCase();
+      if (!(ALLOWED_ATTRS[tag] && ALLOWED_ATTRS[tag].has(name))) {
+        node.removeAttribute(attr.name);
+      }
+    });
+    // Make <a> links safe
+    if (tag === "a") {
+      const href = node.getAttribute("href") || "#";
+      // no javascript: or data: links
+      const safe = /^https?:\/\//i.test(href) || href.startsWith("/") || href.startsWith("?") ? href : "#";
+      node.setAttribute("href", safe);
+      // security for target=_blank (if you add it later)
+      if (node.getAttribute("target") === "_blank") {
+        node.setAttribute("rel", "noopener noreferrer");
+      }
+    }
+    node = walker.nextNode();
+  }
+  return doc.body.innerHTML;
+}
+</script>
+
+  <!-- ===== App Scripts ===== -->
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle (persist)
+    const root = document.documentElement; const toggle = document.getElementById('darkToggle');
+    function setTheme(dark){ root.classList.toggle('dark', dark); localStorage.setItem('theme', dark?'dark':'light'); }
+    setTheme(localStorage.getItem('theme')==='dark'); toggle.addEventListener('click',()=>setTheme(!root.classList.contains('dark')));
+
+    // Mobile menu
+    const mobileBtn = document.getElementById('mobileMenuBtn'); const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn?.addEventListener('click',()=>mobileMenu.classList.toggle('hidden'));
+
+    // Style helpers
+    document.querySelectorAll('.ql').forEach(a=>a.className='ql inline-flex items-center justify-center rounded-lg border border-primary-200 dark:border-gray-700 px-3 py-2 text-sm hover:bg-primary-50 dark:hover:bg-gray-800');
+
+    // Chips
+    document.querySelectorAll('.chip').forEach(ch=>{ ch.className='chip inline-flex items-center rounded-full border border-gray-300 dark:border-gray-700 px-3 py-1 hover:bg-gray-50 dark:hover:bg-gray-800'; ch.addEventListener('click',()=>{ document.getElementById('globalSearch').value=ch.dataset.chip; router.render();});});
+
+    // ===== Data loading (external JSON with inline fallback) =====
+    async function loadData(){
+      try {
+        const res = await fetch('data/courses.json',{cache:'no-store'});
+        if(!res.ok) throw new Error('No external JSON');
+        return await res.json();
+      } catch(e){
+        const inline = document.getElementById('courses-json').textContent;
+        return JSON.parse(inline);
+      }
+    }
+
+    // ===== Ad lazy loader =====
+ function initLazyAds(){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+      if(entry.isIntersecting){
+        const el = entry.target; io.unobserve(el);
+        // (adsbygoogle = window.adsbygoogle || []).push({}); // real ad init here
+        el.setAttribute('data-ad','loaded');
+        el.classList.add('fade-in');
+      }
+    });
+  }, {rootMargin: '200px 0px 200px 0px'});
+  document.querySelectorAll('.ad-slot').forEach(el=>{
+    if(el.id !== 'ad-top-banner') io.observe(el);
+  });
+}
+// ===== Router (tab = assignments | pyq | important) =====
+const router = {
+  tab(){ const u = new URL(location.href); return (u.searchParams.get('tab')||'assignments'); },
+  setTab(t){ const u = new URL(location.href); u.searchParams.set('tab', t); history.pushState({}, '', u.toString()); this.render(); },
+  render(){
+    const current = this.tab();
+    // Update SEO title/description/canonical
+    const titles = {
+  assignments: 'IGNOU Solved Assignments (Free PDFs) — IGNOU Helper',
+  pyq: 'IGNOU Previous Year Question Papers (Free) — IGNOU Helper',
+  important: 'IGNOU Important Questions & Answers — IGNOU Helper',
+  blog: 'IGNOU Blog — Tips, Deadlines & Guides',
+  post: 'Article — IGNOU Blog'
+};
+
+    const descs = {
+  assignments: 'Free IGNOU solved assignments by course code with clean formatting and citations. Download PDFs instantly.',
+  pyq: 'Download IGNOU previous year question papers (2018–2024) by programme and course code. Free and well-organised.',
+  important: 'Important questions & answers for IGNOU programmes. Short and long answers, references, and exam tips.',
+  blog: 'Guides, deadlines, and tips for IGNOU students. Fresh updates and how-tos.',
+  post: 'In-depth article for IGNOU students with practical steps and resources.'
+};
+
+    document.title = titles[current] || 'IGNOU Helper';
+    const md = document.querySelector('meta[name="description"]'); if(md) md.setAttribute('content', descs[current] || 'Free IGNOU resources.');
+    const linkCanonical = document.querySelector('link[rel="canonical"]');
+if (linkCanonical) {
+  if (current === 'post') {
+    const u = new URL(location.href);
+    const slug = u.searchParams.get('slug') || '';
+    linkCanonical.href = `https://www.example.com/?tab=post&slug=${encodeURIComponent(slug)}`;
+  } else {
+    linkCanonical.href = `https://www.example.com/${current}`;
+  }
+}
+
+
+    // Highlight nav
+    document.querySelectorAll('[data-tab-link]').forEach(a=>{
+      const url = new URL(a.href, location.origin);
+      const t = url.searchParams.get('tab');
+      a.classList.toggle('text-primary-600', t===current);
+      a.classList.toggle('font-semibold', t===current);
+    });
+    if(current === 'blog'){
+  buildBlogPage();
+} else if (current === 'post'){
+  buildBlogPostPage();
+} else {
+  buildPage(current);
+}
+
+    buildJSONLD(current);
+  }
+};
+
+// SPA link handler — safe + preserves query (?tab=...&slug=...), same-site only
+document.addEventListener('click', (e) => {
+  // Allow new-tab/middle-click/modified clicks to pass through
+  if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+  const a = e.target.closest('a[data-tab-link]');
+  if (!a) return;
+
+  const rawHref = a.getAttribute('href') || '';
+  let url;
+  try {
+    url = new URL(rawHref, location.href);
+  } catch {
+    return; // let the browser handle weird URLs
+  }
+
+  // Only intercept same-origin links
+  if (url.origin !== location.origin) return;
+
+  e.preventDefault();
+  history.pushState({}, '', url.href); // preserves the full query string
+  router.render();
+});
+
+// Back/forward support (keep only this ONE listener)
+window.addEventListener('popstate', () => router.render());
+
+
+    // ===== Card factory =====
+    function cardHTML(item){
+      const title = `${item.code} • ${item.title}`;
+      const desc = item.category==='assignments'?'Solved Assignment PDF': item.category==='pyq'?'Previous Year Papers':'Important Questions & Answers';
+      return `
+      <article class="card rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:shadow-md transition-shadow" data-programme="${item.programme}" data-category="${item.category}" data-year="${item.year}" data-title="${item.code} ${item.title} ${item.session ? '(' + item.session + ')' : ''}"
+>
+        <div class="p-5">
+          <div class="flex items-center justify-between mb-2">
+            <span class="badge inline-flex items-center rounded-full bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 px-2.5 py-0.5 text-[11px] font-medium">${item.programme}</span>
+            <span class="text-[11px] text-gray-500">${item.session || item.category.toUpperCase()}</span>
+          </div>
+          <h3 class="font-semibold">${title}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">${desc}</p>
+          <div class="mt-4 flex items-center gap-2">
+            <a href="${item.download}" title="Download ${title}" class="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-3 py-2 text-sm font-semibold text-white hover:bg-primary-700">Download</a>
+            <a href="${item.preview}" title="Preview ${title}" class="inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-800">Preview</a>
+          </div>
+        </div>
+      </article>`;
+    }
+
+   
+
+    // ===== Build page content =====
+    async function buildPage(tab){
+      const {items} = await loadData();
+      const app = document.getElementById('app');
+      app.innerHTML = '';
+
+      // Left filters
+      const left = document.createElement('aside');
+      left.className = 'lg:col-span-3 space-y-6';
+      left.innerHTML = `
+        <section class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 sticky top-20">
+          <h2 class="font-semibold mb-3">Sponsored</h2>
+          <div id=\"ad-sidebar-sticky\" class=\"ad-slot w-full min-h-[250px] flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-xs text-gray-500\">AD: Sidebar 300×250 / 300×600</div>
+        </section>
+        <section class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5">
+          <h2 class="font-semibold mb-4">Filter</h2>
+          <div class="space-y-4 text-sm">
+            <div>
+              <label class="block text-gray-600 dark:text-gray-300 mb-1">Programme</label>
+              <select id="fProgramme" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-2">
+                <option value="">All</option>
+                ${[...new Set(items.map(i=>i.programme))].map(p=>`<option>${p}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="block text-gray-600 dark:text-gray-300 mb-1">Year / Semester</label>
+              <select id="fYear" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-2">
+                <option value="">Any</option>
+                ${[...new Set(items.map(i=>i.year))].map(y=>`<option>${y}</option>`).join('')}
+              </select>
+            </div>
+          </div>
+          <div class="mt-5 flex gap-2">
+            <button id="resetFilters" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 px-3 py-2 text-sm">Reset</button>
+            <button id="applyFilters" class="w-full rounded-lg bg-primary-600 text-white px-3 py-2 text-sm font-semibold">Apply</button>
+          </div>
+        </section>
+        <section class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5">
+          <h2 class="font-semibold mb-3">Request a PDF</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-300">Can't find a course? Tell us the course code. We'll add it.</p>
+          <form class="mt-3 space-y-2" onsubmit=\"event.preventDefault(); alert('Thanks! We\'ll try to add this soon.'); this.reset();\">
+            <input required placeholder="Course code e.g., BEGC-131" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-2 text-sm" />
+            <textarea placeholder="Optional: what exactly do you need?" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 p-2 text-sm" rows="3"></textarea>
+            <button class="w-full rounded-lg bg-primary-600 text-white px-3 py-2 text-sm font-semibold">Submit</button>
+          </form>
+        </section>`;
+
+      // Center content
+      const center = document.createElement('section');
+      center.className = 'lg:col-span-6 space-y-6';
+      center.innerHTML = `
+        <div class="flex items-center justify-between">
+          <h1 class="sr-only">IGNOU Resources</h1>
+          <h2 class="text-xl font-bold">${tabTitle(tab)}</h2>
+          <span class="text-sm text-gray-500" id="count"></span>
+        </div>
+        <div id="ad-infeed-1" class="ad-slot w-full min-h-[90px] flex items-center justify-center rounded-xl border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40 text-xs text-gray-500">AD: In‑feed Responsive</div>
+        <div id="cards" class="grid sm:grid-cols-2 gap-5"></div>
+        <section id="seoContent" class="prose max-w-none dark:prose-invert"></section>`;
+
+      // Right rail
+      const right = document.createElement('aside');
+      right.className = 'lg:col-span-3 space-y-6';
+      right.innerHTML = `
+        <section id="tools" class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5">
+          <h2 class="font-semibold mb-3">Student Tools</h2>
+          <ul class="space-y-2 text-sm"><li><a class="tool inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800" href="#">Assignment Cover Page Generator</a></li><li><a class="tool inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800" href="#">PDF Merger</a></li><li><a class="tool inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800" href="#">PDF Compressor</a></li><li><a class="tool inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800" href="#">Plagiarism Checklist</a></li><li><a class="tool inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800" href="#">Word Count & Readability</a></li></ul>
+          <p class="mt-3 text-xs text-gray-600 dark:text-gray-400">These can be simple client-side tools or link to external services.</p>
+        </section>
+        <section class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5">
+          <h2 class="font-semibold mb-3">Notices</h2>
+          <ul class="space-y-3 text-sm" id="noticeList">
+            <li class="notice">June 2025 TEE – Result publishing in phases.</li>
+            <li class="notice">Assignment submission window closes: <strong>31 Oct 2025</strong> (check official site).</li>
+            <li class="notice">Re-registration open for next semester.</li>
+          </ul>
+        </section>
+        <div id="ad-mid-banner" class="ad-slot w-full min-h-[90px] flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-xs text-gray-500">AD: Mid-page 728×90 / Responsive</div>`;
+
+      // Mount three columns
+      app.appendChild(left); app.appendChild(center); app.appendChild(right);
+
+      // Filtering + rendering
+      const q = document.getElementById('globalSearch');
+      const btnApply = document.getElementById('applyFilters');
+      const btnReset = document.getElementById('resetFilters');
+      const cardsEl = document.getElementById('cards');
+      const countEl = document.getElementById('count');
+      const seoEl = document.getElementById('seoContent');
+
+      function currentFilters(){
+        const query = q.value.trim().toLowerCase();
+        const prog = document.getElementById('fProgramme').value;
+        const year = document.getElementById('fYear').value;
+        return {query, prog, year};
+      }
+
+      const INFEED_INTERVAL = 6; // insert ad after every N cards
+
+      function render(){
+        const {query, prog, year} = currentFilters();
+        const filtered = items.filter(i=>{
+          const byTab = i.category === tab;
+          const byQ = query ? (`${i.code} ${i.title}`.toLowerCase().includes(query)) : true;
+          const byP = prog ? i.programme === prog : true;
+          const byY = year ? i.year === year : true;
+          return byTab && byQ && byP && byY;
+        });
+
+        // ItemList JSON-LD (for this view)
+        window.__itemList = filtered.slice(0,20).map((i,idx)=>({
+          '@type':'ListItem', position: idx+1, url: i.preview || i.download || '#', name: `${i.code} ${i.title}`
+        }));
+
+        cardsEl.innerHTML = '';
+        filtered.forEach((it, idx)=>{
+          if(idx>0 && idx % INFEED_INTERVAL === 0){
+            const ad = document.createElement('div');
+            ad.className = 'ad-slot w-full min-h-[90px] flex items-center justify-center rounded-xl border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40 text-xs text-gray-500';
+            ad.textContent = 'AD: In‑feed Responsive';
+            cardsEl.appendChild(ad);
+          }
+          const wrap = document.createElement('div'); wrap.innerHTML = cardHTML(it); cardsEl.appendChild(wrap.firstElementChild);
+        });
+
+        countEl.textContent = `${filtered.length} item${filtered.length!==1?'s':''}`;
+        initLazyAds();
+        injectSEOText(tab, filtered);
+      }
+
+      btnApply?.addEventListener('click', render);
+      btnReset?.addEventListener('click', ()=>{ document.getElementById('fProgramme').value=''; document.getElementById('fYear').value=''; q.value=''; render(); });
+      document.getElementById('searchBtn').addEventListener('click', render);
+      q.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ e.preventDefault(); render(); }});
+
+      function injectSEOText(tab, list){
+        const popular = list.slice(0,10).map(i=>`<li><a href="${i.preview || i.download || '#'}" class="text-primary-700 dark:text-primary-300 underline">${i.code}: ${i.title}</a></li>`).join('');
+        const blocks = {
+          assignments: `<h2 class='text-2xl font-bold mt-6'>IGNOU Solved Assignments — Download Free PDFs</h2>
+            <p>Find updated IGNOU solved assignments organised by programme (BAG, BCOMG, MCOM, MA Psychology) and year/semester. Each PDF is formatted for clean printing and evaluation guidelines.</p>
+            <h3 class='text-xl font-semibold mt-4'>Popular assignment codes</h3><ul class='list-disc pl-5'>${popular}</ul>
+            <p class='mt-4'>Tip: Always verify the latest session requirements and submission dates on the official IGNOU portal before submission.</p>`,
+          pyq: `<h2 class='text-2xl font-bold mt-6'>IGNOU Previous Year Question Papers</h2>
+            <p>Download previous year papers (2018–2024) for quick revision. Use them to understand question patterns and weightage across sections.</p>
+            <h3 class='text-xl font-semibold mt-4'>Frequently downloaded PYQs</h3><ul class='list-disc pl-5'>${popular}</ul>`,
+          important: `<h2 class='text-2xl font-bold mt-6'>IGNOU Important Questions & Answers</h2>
+            <p>Concise Q&A sets focusing on high-probability topics. Combine with PYQs and official study material for best results.</p>
+            <h3 class='text-xl font-semibold mt-4'>High‑yield topics</h3><ul class='list-disc pl-5'>${popular}</ul>`
+        };
+        seoEl.innerHTML = blocks[tab] || '';
+      }
+
+      render();
+    }
+
+    function tabTitle(t){
+  if(t==='assignments') return 'Solved Assignments';
+  if(t==='pyq') return 'Previous Year Question Papers';
+  if(t==='important') return 'Important Questions & Answers';
+  if(t==='blog') return 'Blog';
+  if(t==='post') return 'Article';
+  return 'All Resources';
+}
+
+
+    // Build JSON-LD for Breadcrumbs & ItemList & FAQ
+    function buildJSONLD(tab){
+      const breadcrumb = {
+        '@context':'https://schema.org', '@type':'BreadcrumbList', 'itemListElement': [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.example.com/' },
+          { '@type': 'ListItem', position: 2, name: tabTitle(tab), item: `https://www.example.com/${tab}` }
+        ]
+      };
+      const itemList = {
+        '@context':'https://schema.org','@type':'ItemList','itemListElement': (window.__itemList||[])
+      };
+      const faq = {
+        '@context':'https://schema.org','@type':'FAQPage','mainEntity': [
+          { '@type':'Question','name':'Are these answers free?','acceptedAnswer':{'@type':'Answer','text':'Yes. Everything here is free to access and download.'}},
+          { '@type':'Question','name':'Do I still need to study from books?','acceptedAnswer':{'@type':'Answer','text':'Use these as a guide. Follow IGNOU’s academic integrity rules and refer to official materials.'}},
+          { '@type':'Question','name':'Can I request a missing course?','acceptedAnswer':{'@type':'Answer','text':'Yes—use the “Request a PDF” form. We add popular requests quickly.'}}
+        ]
+      };
+      document.querySelectorAll('script[data-seo-jsonld]')?.forEach(n=>n.remove());
+      [breadcrumb,itemList,faq].forEach(obj=>{
+        const s=document.createElement('script'); s.type='application/ld+json'; s.dataset.seoJsonld='1'; s.textContent=JSON.stringify(obj); document.head.appendChild(s);
+      });
+    }
+
+    // Consent banner
+    const CONSENT_KEY='adsConsent';
+    function showConsent(){ document.getElementById('consentBanner')?.classList.remove('hidden'); }
+    function hideConsent(){ document.getElementById('consentBanner')?.classList.add('hidden'); }
+    if(!localStorage.getItem(CONSENT_KEY)) setTimeout(showConsent, 800);
+    document.addEventListener('click',(e)=>{
+      if(e.target && e.target.id==='consentAccept'){ localStorage.setItem(CONSENT_KEY,'personalised'); hideConsent(); }
+      if(e.target && e.target.id==='consentReject'){ localStorage.setItem(CONSENT_KEY,'nonpersonalised'); hideConsent(); }
+    });
+
+// --- Blog helpers ---
+async function loadBlog(){
+  try {
+    const res = await fetch('data/blog.json',{cache:'no-store'});
+    if(!res.ok) throw new Error('No external blog JSON');
+    return await res.json();
+  } catch(e){
+    const inline = document.getElementById('blog-json').textContent;
+    return JSON.parse(inline);
+  }
+}
+
+function blogCardHTML(p){
+  const dateStr = new Date(p.date).toLocaleDateString();
+  const safeTitle = escapeHTML(p.title);
+  const safeExcerpt = escapeHTML(p.excerpt);
+  const slug = encodeURIComponent(p.slug);
+
+  return `
+  <article class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5">
+    <h2 class="text-lg md:text-xl font-semibold">
+      <a data-tab-link href="?tab=post&slug=${slug}" class="hover:text-primary-600">${safeTitle}</a>
+    </h2>
+    <p class="text-xs text-gray-500 mt-1">${dateStr}</p>
+    <p class="text-sm text-gray-700 dark:text-gray-300 mt-3">${safeExcerpt}</p>
+    <div class="mt-4">
+      <a data-tab-link href="?tab=post&slug=${slug}" class="inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-800">Read More</a>
+    </div>
+  </article>`;
+}
+
+// Build the Blog list page
+async function buildBlogPage(){
+  const app = document.getElementById('app');
+  app.innerHTML = '';
+
+  const {posts} = await loadBlog();
+
+  // Left rail: sponsored (ad)
+  const left = document.createElement('aside');
+  left.className = 'lg:col-span-3 space-y-6';
+  left.innerHTML = `
+    <section class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 sticky top-20">
+      <h2 class="font-semibold mb-3">Sponsored</h2>
+      <div class="ad-slot w-full min-h-[250px] flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-xs text-gray-500">AD: Sidebar 300×250 / 300×600</div>
+    </section>`;
+
+  // Center: blog list + infeed ad
+  const center = document.createElement('section');
+  center.className = 'lg:col-span-6 space-y-6';
+  center.innerHTML = `
+    <div class="flex items-center justify-between">
+      <h2 class="text-xl font-bold">Blog</h2>
+      <span class="text-sm text-gray-500" id="blogCount"></span>
+    </div>
+    <div id="blogCards" class="space-y-5"></div>
+    <section id="seoContent" class="prose max-w-none dark:prose-invert"></section>`;
+
+  // Right: tools + ad (same look as other pages)
+  const right = document.createElement('aside');
+  right.className = 'lg:col-span-3 space-y-6';
+  right.innerHTML = `
+    <section class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5">
+      <h2 class="font-semibold mb-3">Popular Guides</h2>
+      <ul class="space-y-2 text-sm">
+        <li><a data-tab-link href="?tab=post&slug=ignou-assignment-submission-2025" class="underline">Assignment Deadlines 2025</a></li>
+        <li><a data-tab-link href="?tab=post&slug=score-max-marks-ignou" class="underline">Score Maximum Marks</a></li>
+        <li><a data-tab-link href="?tab=post&slug=ignou-grade-card-explained" class="underline">Grade Card Explained</a></li>
+      </ul>
+    </section>
+    <div class="ad-slot w-full min-h-[90px] flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-xs text-gray-500">AD: Mid-page 728×90 / Responsive</div>`;
+
+  app.appendChild(left); app.appendChild(center); app.appendChild(right);
+
+  // Render posts with in-feed ad after N items
+  const cards = document.getElementById('blogCards');
+  const blogCount = document.getElementById('blogCount');
+  const INFEED_INTERVAL = 6;
+  posts.forEach((p, idx)=>{
+    if(idx>0 && idx % INFEED_INTERVAL === 0){
+      const ad = document.createElement('div');
+      ad.className = 'ad-slot w-full min-h-[90px] flex items-center justify-center rounded-xl border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40 text-xs text-gray-500';
+      ad.textContent = 'AD: In-feed Responsive';
+      cards.appendChild(ad);
+    }
+    const wrap = document.createElement('div');
+    wrap.innerHTML = blogCardHTML(p);
+    cards.appendChild(wrap.firstElementChild);
+  });
+
+  blogCount.textContent = `${posts.length} post${posts.length!==1?'s':''}`;
+
+  // SEO text
+  document.getElementById('seoContent').innerHTML = `
+    <h2 class="text-2xl font-bold mt-6">IGNOU Blog — Tips, Deadlines & Guides</h2>
+    <p>Fresh, practical posts for IGNOU students. We cover assignment schedules, writing tips, grade cards, and PYQ strategy.</p>`;
+
+  initLazyAds();
+  buildBlogJSONLD(posts);
+}
+
+// Build a single blog post page
+async function buildBlogPostPage(){
+  const app = document.getElementById('app');
+  app.innerHTML = '';
+
+  const {posts} = await loadBlog();
+  const u = new URL(location.href);
+  const slug = u.searchParams.get('slug') || '';
+  const post = posts.find(p=>p.slug === slug);
+
+  if(!post){
+    const box = document.createElement('section');
+    box.className = 'lg:col-span-12';
+    box.innerHTML = `<div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6"><h2 class="font-semibold">Post not found.</h2></div>`;
+    app.appendChild(box);
+    return;
+  }
+
+  // Update SEO title/description just for this post
+  document.title = `${post.title} — IGNOU Blog`;
+  const md = document.querySelector('meta[name="description"]');
+  if(md) md.setAttribute('content', post.excerpt);
+
+  // Layout: 8/4 like list page to keep ad layout consistent
+  const center = document.createElement('section');
+  center.className = 'lg:col-span-8 space-y-6';
+  center.innerHTML = `
+    <article class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6">
+      <h1 class="text-2xl md:text-3xl font-extrabold">${post.title}</h1>
+      <p class="text-xs text-gray-500 mt-1">${new Date(post.date).toLocaleDateString()}</p>
+      <div class="prose dark:prose-invert max-w-none mt-6">${sanitizeHTML(post.content)}</div>
+    </article>`;
+
+  const right = document.createElement('aside');
+  right.className = 'lg:col-span-4 space-y-6';
+  right.innerHTML = `
+    <div class="ad-slot w-full min-h-[250px] flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-xs text-gray-500">AD: Sidebar 300×250</div>
+    <section class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5">
+      <h2 class="font-semibold mb-3">More from the Blog</h2>
+      <ul class="space-y-2 text-sm">
+        ${posts.filter(p=>p.slug!==post.slug).slice(0,5).map(p=>`<li><a data-tab-link href="?tab=post&slug=${encodeURIComponent(p.slug)}" class="underline">${p.title}</a></li>`).join('')}
+      </ul>
+    </section>`;
+
+  app.appendChild(center); app.appendChild(right);
+
+  initLazyAds();
+  buildBlogPostJSONLD(post);
+}
+
+// JSON-LD for blog list
+function buildBlogJSONLD(posts){
+  const list = {
+    '@context':'https://schema.org',
+    '@type':'CollectionPage',
+    'name':'IGNOU Blog',
+    'hasPart': posts.slice(0,20).map(p=>({
+      '@type':'BlogPosting',
+      'headline': p.title,
+      'datePublished': p.date,
+      'url': `${location.origin}${location.pathname}?tab=post&slug=${encodeURIComponent(p.slug)}`
+    }))
+  };
+  document.querySelectorAll('script[data-seo-blog]')?.forEach(n=>n.remove());
+  const s=document.createElement('script'); s.type='application/ld+json'; s.dataset.seoBlog='1'; s.textContent=JSON.stringify(list); document.head.appendChild(s);
+}
+
+// JSON-LD for a single blog post
+function buildBlogPostJSONLD(p){
+  document.querySelectorAll('script[data-seo-blog]')?.forEach(n=>n.remove());
+  const obj = {
+    '@context':'https://schema.org',
+    '@type':'BlogPosting',
+    'headline': p.title,
+    'datePublished': p.date,
+    'description': p.excerpt,
+    'mainEntityOfPage': `${location.origin}${location.pathname}?tab=post&slug=${encodeURIComponent(p.slug)}`
+  };
+  const s=document.createElement('script'); s.type='application/ld+json'; s.dataset.seoBlog='1'; s.textContent=JSON.stringify(obj); document.head.appendChild(s);
+}
+</script>
+
+    <script>
+// Quick check (optional)
+console.assert(typeof router === 'object' && typeof router.render === 'function', 'router not ready');
+// Kick off
+router.render();
+</script>
+
+
+  
+
+  <!-- Consent / Privacy Banner for Ads -->
+  <div id="consentBanner" class="fixed inset-x-0 bottom-0 z-50 hidden">
+    <div class="mx-auto max-w-7xl px-4 pb-4">
+      <div class="rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow p-4 flex flex-col md:flex-row items-start md:items-center gap-3">
+        <p class="text-sm text-gray-700 dark:text-gray-300">We use cookies to show non‑intrusive ads that keep this site free. You can choose personalised or non‑personalised ads.</p>
+        <div class="ml-auto flex gap-2">
+          <button id="consentReject" class="rounded-lg border border-gray-300 dark:border-gray-700 px-3 py-2 text-sm">Non‑personalised</button>
+          <button id="consentAccept" class="rounded-lg bg-primary-600 text-white px-3 py-2 text-sm font-semibold">Allow personalised</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Example placeholder for Google AdSense (replace with real publisher ID) -->
+  <!--
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX" crossorigin="anonymous"></script>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXX" data-ad-slot="YYYYYYYYYY" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</body>
+</html>
